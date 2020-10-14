@@ -70,20 +70,20 @@ class Navbar extends React.Component {
             <a className="navbar-brand" href="/">
               <h1>Url Shortener <span className="badge badge-secondary">{this.props.totalItems}</span></h1>
             </a>
-            <div className="m-auto">
+            {/* <div className="m-auto">
               <form className="form-inline search-form">
                 <input className="form-control mr-sm-2" type="search" placeholder="@search" aria-label="Search" />
               </form>
-            </div>
-            <ul className="navbar-nav">
+            </div> */}
+            {/* <ul className="navbar-nav">
               <li className="nav-item active">
                 <a className="mr-4" href="#" onClick={() => { this.deleteSession() }}><FontAwesomeIcon icon={faSignOutAlt} size="lg" /></a>
               </li>
-            </ul>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            </ul> */}
+            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
+            </button> */}
+            {/* <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <div className="user-section">
                   <a href="#" onClick={() => { this.deleteSession() }}><FontAwesomeIcon icon={['fa', "user"]} /></a>
@@ -91,7 +91,7 @@ class Navbar extends React.Component {
                   <a><FontAwesomeIcon icon={['fa', "compass"]} /></a>
                 </div>
               </ul>
-            </div>
+            </div> */}
           </div>
         </nav>
         <h3>{Notification(this.notification)}</h3>
