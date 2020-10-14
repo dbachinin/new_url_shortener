@@ -1,13 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import $ from 'jquery';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       link: '',
-      error: null
+      error: null,
+      copied: false
     };
     this.given_link = '';
     this.token = '';
@@ -73,27 +75,26 @@ class Home extends React.Component {
           <div className="container secondary-color">
             <h5 className="display-4">Enter destination URL</h5>
             <div className="row mt-5 justify-content-center">
-              <div className="col-12 col-lg-6 border border-1 p-4">
+              <div className="border border-1 p-4">
                 <form className="" onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <label className="col-form-label">Given URL</label>
                     <input
                       className="form-control"
-                      type="text"
+                      type="url"
                       placeholder="Please input given URL"
                       onChange={this.handleChange}/>
                   </div>
                   <Error error={this.state.error}/>
                   <a href={this.state.link}>{this.state.link}</a>
                   <hr className="my-4"/>
-                  <div className="form-group text-right">
-                    {this.props.sendingRequest
-                      ? (
-                        <button type="button" className="btn btn-primary" disabled>Sending Request...</button>
-                      )
-                      : (
-                        <button type="button" onClick={this.handleSubmit} className="btn btn-primary">Get Short URL</button>
-                      )}
+                  <div className="btn-group">
+                    <button onClick={this.handleSubmit} className="btn btn-primary">Get Short URL</button>
+
+                    <CopyToClipboard text={this.state.link}
+                      onCopy={() => this.setState({copied: true})}>
+                      <button className="btn btn-secondary">Copy to clipboard</button>
+                    </CopyToClipboard>
                   </div>
                 </form>
               </div>

@@ -4,6 +4,7 @@ class Link
 
   field :given_url, type: String
   field :slug, type: String
+  field :counter, type: Integer, :default => 0
 
   after_create :generate_slug
 
@@ -20,6 +21,11 @@ class Link
     end
   }
 
+  def counter_up
+    update(counter: counter + 1)
+  end
+
+  private
 
   def generate_slug
     update(slug: SecureRandom.uuid[0..3])
