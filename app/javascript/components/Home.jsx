@@ -18,17 +18,37 @@ componentDidMount () {
 
 handleSubmit() {
   console.log(this.given_link)
+
+  // $.ajax({
+  //   type: 'POST', 
+  //   url: '/set_url',
+  //   headers: {
+  //     'X-CSRF-Token': this.given_link 
+  //   },
+  //   data: {
+  //     link: {
+  //       dest_url: this.given_link
+  //     }
+  //   },
+  // }).done(function(res) {
+  //   console.log(res);
+  // })
+
   fetch('/set_url', {
-    method: 'POST',
-    data: {dest_url: this.given_link},
+    method: 'post',
+    body: JSON.stringify({
+      link: {
+        dest_url: this.given_link
+      }
+    }),
     headers: {
-      'X-Requested-With': 'XMLHttpRequest',
+      "Content-Type" : "application/json",
       'X-CSRF-Token': this.token
-    }
-  }).then((data) =>{
-    console.log(data)
-    this.setState({ link: data.body });
-  })
+    },
+  }).then(response => response.json())
+  .then(json => {
+    this.setState({ link: json.data });
+  });
   
 }
 
