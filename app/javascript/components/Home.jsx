@@ -73,12 +73,12 @@ class Home extends React.Component {
         className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
         <div className="jumbotron jumbotron-fluid bg-transparent">
           <div className="container secondary-color">
-            <h5 className="display-4">Enter destination URL</h5>
+            <h5 className="display-4">Enter URL</h5>
             <div className="row mt-5 justify-content-center">
               <div className="border border-1 p-4">
                 <form className="" onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <label className="col-form-label">Given URL</label>
+                    <label className="col-form-label">Long URL</label>
                     <input
                       className="form-control"
                       type="url"
